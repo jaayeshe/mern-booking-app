@@ -10,7 +10,12 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
@@ -18,3 +23,5 @@ app.use("/api/users", userRoutes);
 app.listen(7000, () => {
   console.log("Server running on localhost:7000");
 });
+
+//this is the file where our server starts
