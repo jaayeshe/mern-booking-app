@@ -62,4 +62,5 @@ router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
 
 export default router;
 
-//the auth route is not part of the user route, cause we aren't interacting directly with the users end like we did with the register's functionality
+//the auth route is not part of the user route, cause we aren't
+//interacting directly with the users end like we did with the register's functionality.
