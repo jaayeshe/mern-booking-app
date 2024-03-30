@@ -23,7 +23,7 @@ export const AppContextProvider = ({
   //delcare a state obj which holds the state the of the toast, if it's been displayed or not
   const [toast, setToast] = useState<ToastMessage | undefined>(undefined);
 
-  //it's going to call our validateToken endpoint using our apiClient & it's
+  //it's going to call our validateToken endpoint using our apiClient & it's going
   //to return if there is an error or not
   const { isError } = useQuery("validateToken", apiClient.validateToken, {
     retry: false,
