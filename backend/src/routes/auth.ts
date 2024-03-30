@@ -60,6 +60,17 @@ router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
   res.status(200).send({ userId: req.userId });
 });
 
+//return an empty token as part of the auth token http cookie
+//this creates an empty auth token and says that..
+//this token is expired at the time of creation
+//means the token is invalid & can't be used AGAIN from this point on
+
+router.post("/logout", (req: Request, res: Response) => {
+  res.cookie("auth_token", "", {
+    expires: new Date(0),
+  });
+});
+
 export default router;
 
 //the auth route is not part of the user route, cause we aren't
